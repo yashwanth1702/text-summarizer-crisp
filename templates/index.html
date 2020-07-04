@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>crisp-text summarizer</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <!-- Favicons -->
+  <link href="static/assets/img/2.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Techie - v2.1.0
+  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center">
+        <div class="col-xl-9 d-flex align-items-center">
+          
+          <a href="#hero" class="logo mr-auto"><img src="static/assets/img/Untitled.png" class="img-fluid"></a>
+
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="#hero">Home</a></li>
+              <li><a href="#text">Text</a></li>
+              <li><a href="#link">link</a></li>
+              <li><a href="#about">About</a></li>
+
+            </ul>
+          
+        </div>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Bettter Digital Experience With CRISP </h1>
+          <h2>Crisp gives you a coherent and fluent summary by shortening long pieces of text</h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <a href="#text" class="btn-get-started scrollto">Text</a> <a href="#link" class="btn-get-started scrollto">Link</a>
+              <div style="padding-left: 10px;" ></div>
+              
+             </div>
+        </div>
+          <div class="row" >
+            
+            
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+          
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= text Section ======= -->
+    <section id="text" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>TEXT</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-8">
+              <form method="POST" action="/analyze" >
+                <p style="font-style: oblique;">Entered text</p>
+                <p>Reading Time: <span style="color:#5043f3;">{{ final_reading_time_t }} min </span></p>
+                <textarea id="myInput" class="form-group comment-box" name="rawtext" rows="15" cols="30%" required="true" placeholder="Enter the text here.......">{{ctext_t}}</textarea>
+                <br/>
+                  <div class="btn-m">
+                    <input type="submit" class="btn btn-outline-dark" value="predict" >
+                    <button class="btn btn-outline-dark" onclick="document.getElementById('myInput').value = ''">Clear</button>
+                  </div>
+              </form>   
+                
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="info-box  mb-4">
+              <p style="font-style: oblique;">summarized text</p>
+              <p>Reading Time: <span style="color:#5043f3;">{{ summary_reading_time_t }} min </span></p>
+              <textarea class="form-group comment-box" rows="16" cols="30%" >{{ final_summary_t }}</textarea>
+              
+            </div>
+          </div>
+      </div>
+    </section><!-- End text Section -->
+    <!-- ======= link Section ======= -->
+    <section id="link" class="contact section-bg color">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>LINK SUMMARIZER</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="info-box mb-8">
+              <form method="POST" action="/analyze_url">
+                <input type="text" name="raw_url" placeholder="Enter URL Here" required="true">
+                 <button class="btn btn-outline-dark" type="submit">Summarize</button>
+                 <button class="btn btn-outline-dark" type="reset">Clear</button>
+               </form>
+            </div>
+            <div style="padding-bottom: 30px;" ></div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="info-box mb-4">
+                  <p style="font-style: oblique;">Entered text</p>
+                  <p>Reading Time: <span style="color:#5043f3;">{{ final_reading_time_u }} min </span></p>
+                  <textarea class="form-group comment-box" rows="16" cols="30%">{{ctext_u}}</textarea>
+                  <br/>
+                    
+                </div>
+              </div>
+    
+              <div class="col-lg-6 col-md-6">
+                <div class="info-box  mb-4">
+                  <p style="font-style: oblique;">summarized text</p>
+                  <p>Reading Time: <span style="color:#5043f3;">{{ summary_reading_time_u }} min </span></p>
+                  <textarea class="form-group comment-box" rows="16" cols="30%" >{{ final_summary_u }}</textarea>
+                  
+                </div>
+              </div>
+          </div>
+          
+      </div>
+    </section><!-- End link Section -->
+
+    <!-- about section -->
+    <section id="about" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>ABOUT</h2>
+        </div>
+
+        <div class="row">
+          
+              <p style="font-size: 20px;" >Text summarization is the technique for generating a concise and precise summary of voluminous texts while focusing on the sections that convey useful information, and without losing the overall meaning.Text summarization aims to transform lengthy documents into shortened versions, something which could be difficult and costly to undertake if done manually.</p>
+                <div class="container" style="padding-bottom: 20px;" >
+                  <h2 class="text-center" >who is crisp for ?</h2>
+                </div>
+                
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="info-box">
+                      <div class="card-body">
+                        <i class='far fa-clipboard' style='font-size:36px'></i>
+                        <h5 class="card-title">Readers</h5>
+                        <p class="card-text">Save time, summarize your digital documents for a relevant and fast uptake of information.</p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="info-box">
+                      <div class="card-body">
+                        <i class='fas fa-book-reader' style='font-size:36px'></i>
+                        <h5 class="card-title">Students</h5>
+                        <p class="card-text">With crisp, summarize your Wikipedia pages in a matter of seconds for your productivity.</p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="info-box">
+                      <div class="card-body">
+                        <i class='far fa-edit' style='font-size:36px'></i>
+                        <h5 class="card-title text-center">Writers</h5>
+                        <p class="card-text text-center">Need to summarize your chapters ? With crisp, go to the heart of your ideas.</p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+
+          </div>
+          
+      </div>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+  
+    </div>
+
+    <div class="container">
+
+      <div class="copyright-wrap d-md-flex py-4">
+        <div class="mr-md-auto text-center text-md-left">
+          <div class="copyright">
+            &copy; Copyright <strong><span>CRISP</span></strong>
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ -->
+            Done by <a href="https://www.linkedin.com/in/yashwanth-venkat-743172190/">yashwanth</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="https://twitter.com/Yashwanth1702" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100006768288290" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/s_want_when_cat/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/yashwanth-venkat-743172190/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+  <!--text section-->
+  <script>
+    const resultSection1 = document.getElementById('text')
+    
+    function scrollToPredictSection1 () {
+      resultSection1.scrollIntoView()
+    }
+  </script>
+
+  {% if show_result1 %}
+  <script>
+    scrollToPredictSection1()
+  </script>
+  {% endif %}
+
+  <!--link section-->
+  <script>
+    const resultSection2 = document.getElementById('link')
+    
+    function scrollToPredictSection2 () {
+      resultSection2.scrollIntoView()
+    }
+  </script>
+
+  {% if show_result2 %}
+  <script>
+    scrollToPredictSection2()
+  </script>
+  {% endif %}
+
+</body>
+
+</html>
