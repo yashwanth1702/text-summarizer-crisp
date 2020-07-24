@@ -6,4 +6,17 @@ The intention is to create a coherent and fluent summary having only the mainpoi
 - Flask
 - NLTK
 - spacy
-### Demo: https://crisp-summarizer.herokuapp.com/
+```bash
+pip install requirements.txt
+```
+## Run
+To run sD in your local host: http://127.0.0.1:5000/
+
+```python
+python3 app.py
+```
+## Demo
+
+![test image size](/gif/demo.gif)
+
+You can check the website here: https://crisp-summarizer.herokuapp.com/
